@@ -10,7 +10,7 @@ const HomeLayout = () => {
     <SidebarProvider defaultOpen={false} className="">
 
     <div className="
-    relative flex flex-col justify-between w-screen h-200 md:min-h-screen overflow-x-hidden 
+    relative flex flex-col justify-between w-screen h-240 md:min-h-screen overflow-x-hidden 
      bg-[radial-gradient(circle_at_center,#131313_20%,#1a1a1a_60%,#0d0d0d_100%),url('/logo-engineering-dark.png')] 
      bg-bottom md:bg-bottom-right bg-contain bg-no-repeat bg-blend-lighten 
      lg:bg-[length:auto,80%] xl:bg-[length:auto,80%]">

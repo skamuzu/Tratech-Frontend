@@ -1,5 +1,6 @@
 import { SignUpButton } from "@clerk/clerk-react";
 
+
 const Home = () => {
   return (
     <div className="p-12 flex flex-col gap-8">

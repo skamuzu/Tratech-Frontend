@@ -38,7 +38,7 @@ const HomeLayoutSidebar = () => {
     <div className="">
       <Sidebar
         side="right"
-        className="variant-blue outline-none group @_[data-slot='sidebar']:bg-black md:hidden"
+        className="variant-blue outline-none group @_[data-slot='sidebar']:bg-black md:hidden border-0"
       >
         <SidebarHeader className="flex justify-start p-4">
           <X onClick={() => toggleSidebar()} className="text-main" />

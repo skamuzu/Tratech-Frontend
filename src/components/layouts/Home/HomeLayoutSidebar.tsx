@@ -9,9 +9,9 @@ import {
   SidebarMenuButton,
   SidebarGroupContent,
   SidebarMenuItem,
-} from "../ui/sidebar";
+} from "../../ui/sidebar";
 import { Link } from "react-router-dom";
-import { useSidebar } from "../ui/sidebar";
+import { useSidebar } from "../../ui/sidebar";
 
 const Links = [
   {

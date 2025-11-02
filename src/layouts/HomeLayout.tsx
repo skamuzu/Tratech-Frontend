@@ -1,9 +1,9 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
-import HomeLayoutHeader from "../components/layouts/HomeLayoutHeader"
-import HomeLayoutFooter from "@/components/layouts/HomeLayoutFooter"
+import HomeLayoutHeader from "../components/layouts/Home/HomeLayoutHeader"
+import HomeLayoutFooter from "@/components/layouts/Home/HomeLayoutFooter"
 import { SidebarProvider } from "@/components/ui/sidebar"
-import HomeLayoutSidebar from "@/components/layouts/HomeLayoutSidebar"
+import HomeLayoutSidebar from "@/components/layouts/Home/HomeLayoutSidebar"
 
 const HomeLayout = () => {
   return (

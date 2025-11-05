@@ -14,6 +14,7 @@ import {
   LibraryBig,
   Settings,
 } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 import { SignOutButton } from "@clerk/clerk-react";
@@ -53,7 +54,10 @@ const AdminLayoutSidebar = () => {
         <SidebarMenu>
           {Links.map((item) => (
             <SidebarMenuItem key={item.name} className="">
-              <SidebarMenuButton asChild className="hover:bg-main hover:text-background">
+              <SidebarMenuButton
+                asChild
+                className="hover:bg-main hover:text-background"
+              >
                 <a href={item.path} className="text-xl font-semibold p-6  ">
                   <item.icon className="w-8! h-8!" />
                   <span>{item.name}</span>
@@ -63,23 +67,40 @@ const AdminLayoutSidebar = () => {
           ))}
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter className="border-t p-3 flex flex-col gap-4">
-        <div className="flex gap-2">
-          <img
-            src={user?.imageUrl}
-            alt="User image"
-            className="w-12 aspect-square rounded-full"
-          />
-          <div className="flex flex-col">
-            <h2 className="font-semibold">
-              {user?.firstName} {user?.lastName}
-            </h2>
-            <h3>{user?.primaryEmailAddress?.emailAddress}</h3>
+      <SidebarFooter className="border-t p-4 flex flex-col gap-4">
+        {user ? (
+          <>
+            <div className="flex gap-2">
+              <img
+                src={user?.imageUrl}
+                alt="User image"
+                className="w-12 aspect-square rounded-full"
+              />
+              <div className="flex flex-col">
+                <h2 className="font-semibold">
+                  {user?.firstName} {user?.lastName}
+                </h2>
+                <h3>{user?.primaryEmailAddress?.emailAddress}</h3>
+              </div>
+            </div>
+            <SignOutButton>
+              <button className="bg-main p-3 text-xl text-background rounded-md">
+                Log Out
+              </button>
+            </SignOutButton>
+          </>
+        ) : (
+          <>
+          <div className="flex gap-2">
+            <Skeleton className="w-15 aspect-square rounded-full" />
+            <div className="flex flex-col gap-2 w-full">
+                <Skeleton className="h-4 w-5/6" />
+                <Skeleton className="h-4 w-5/6" />
+            </div>
           </div>
-        </div>
-        <SignOutButton>
-          <button className="bg-main p-3 text-xl text-background rounded-md">Log Out</button>
-        </SignOutButton>
+          <Skeleton className="w-full rounded-md h-12"/>
+          </>
+        )}
       </SidebarFooter>
     </Sidebar>
   );

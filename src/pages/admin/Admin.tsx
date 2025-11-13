@@ -34,9 +34,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useQuery } from "@tanstack/react-query";
+
+import { Spinner } from "@/components/ui/spinner";
+;
 
 const Admin = () => {
   const { user } = useUser();
+  
+
 
   const Cards = [
     { title: "Total Users", value: 1250, progression: +5.2 },
@@ -89,7 +95,7 @@ const Admin = () => {
       </div>
       <div className="flex w-full justify-around p-8 gap-8">
         {Cards.map((card) => (
-          <Card className="w-1/4">
+          <Card key={card.title} className="w-1/4">
             <CardHeader>
               <CardTitle>{card.title}</CardTitle>
             </CardHeader>
@@ -108,7 +114,7 @@ const Admin = () => {
         ))}
       </div>
       <div className="grid grid-flow-col grid-rows-2 gap-8 p-4 px-8">
-        <Card className="row-span-1">
+        <Card className="row-span-1 col-span-3">
           <CardHeader className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <CardTitle>New Signups & Active Students</CardTitle>
@@ -165,17 +171,20 @@ const Admin = () => {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="row-span-1">
+        <Card className="row-span-1 col-span-3">
           <CardHeader>
             <CardTitle>Second Section</CardTitle>
           </CardHeader>
           <CardContent>Hello</CardContent>
         </Card>
 
-        <Card className="col-span-1 row-span-2">
+        <Card className="col-span-2 row-span-2">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
           </CardHeader>
+          <CardContent>
+    
+          </CardContent>
         </Card>
       </div>
     </div>

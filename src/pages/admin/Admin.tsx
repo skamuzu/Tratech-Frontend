@@ -34,10 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useQuery } from "@tanstack/react-query";
-
-import { Spinner } from "@/components/ui/spinner";
-;
+import ActivityFeed from "@/components/layouts/Admin/ActivityFeed";
 
 const Admin = () => {
   const { user } = useUser();
@@ -66,6 +63,8 @@ const Admin = () => {
       color: "var(--chart-1)",
     },
   } satisfies ChartConfig;
+
+
 
   return (
     <div className="w-full">
@@ -114,7 +113,7 @@ const Admin = () => {
         ))}
       </div>
       <div className="grid grid-flow-col grid-rows-2 gap-8 p-4 px-8">
-        <Card className="row-span-1 col-span-3">
+        <Card className="row-span-1 col-span-5">
           <CardHeader className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <CardTitle>New Signups & Active Students</CardTitle>
@@ -171,19 +170,19 @@ const Admin = () => {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="row-span-1 col-span-3">
+        <Card className="row-span-1 col-span-5">
           <CardHeader>
             <CardTitle>Second Section</CardTitle>
           </CardHeader>
           <CardContent>Hello</CardContent>
         </Card>
 
-        <Card className="col-span-2 row-span-2">
+        <Card className="col-span-1 row-span-2">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
           </CardHeader>
           <CardContent>
-    
+                <ActivityFeed/>
           </CardContent>
         </Card>
       </div>

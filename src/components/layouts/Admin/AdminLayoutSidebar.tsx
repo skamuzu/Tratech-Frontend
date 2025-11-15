@@ -18,9 +18,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "react-router";
 import { useUser } from "@clerk/clerk-react";
 import { SignOutButton } from "@clerk/clerk-react";
+import { useLocation } from "react-router";
+import { C } from "node_modules/react-router/dist/development/index-react-server-client-BIz4AUNd.d.mts";
 
 const Links = [
-  { name: "Dashboard", path: "/admin", icon: LayoutDashboardIcon },
+  { name: "Dashboard", path: "/admin/dashboard", icon: LayoutDashboardIcon },
   {
     name: "Courses",
     path: "/admin/courses",
@@ -43,17 +45,21 @@ const Links = [
   },
 ];
 
+
+
 const AdminLayoutSidebar = () => {
   const { user } = useUser();
+  const location = useLocation()
+
   return (
     <Sidebar>
-      <SidebarHeader className="border-b">
+      <SidebarHeader>
         <img src="/logo-tratech1.png" alt="" />
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarMenu>
           {Links.map((item) => (
-            <SidebarMenuItem key={item.name} className="">
+            <SidebarMenuItem key={item.name} className={`${location.pathname === item.path && "bg-main rounded-md text-background" }`}>
               <SidebarMenuButton
                 asChild
                 className="hover:bg-main hover:text-background"

@@ -68,7 +68,7 @@ const Admin = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-row gap-4 border-b p-4 px-8 items-center justify-between">
+      <div className="flex flex-row gap-4 border-b p-4 px-8 items-center justify-between bg-card">
         <div className="flex-1 pl-4">
           <InputGroup className="h-12 w-1/2 text-2xl">
             <InputGroupInput placeholder="Search courses, users ..." />
@@ -112,8 +112,8 @@ const Admin = () => {
           </Card>
         ))}
       </div>
-      <div className="grid grid-flow-col grid-rows-2 gap-8 p-4 px-8">
-        <Card className="row-span-1 col-span-5">
+      <div className="grid grid-cols-5 grid-rows-2 gap-8 p-4 px-8">
+        <Card className=" col-span-4">
           <CardHeader className="flex flex-row justify-between">
             <div className="flex flex-col gap-2">
               <CardTitle>New Signups & Active Students</CardTitle>
@@ -138,7 +138,7 @@ const Admin = () => {
             </Select>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
+            <ChartContainer config={chartConfig} className="h-[200px] w-full">
               <LineChart
                 accessibilityLayer
                 data={chartData}
@@ -170,21 +170,21 @@ const Admin = () => {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="row-span-1 col-span-5">
-          <CardHeader>
-            <CardTitle>Second Section</CardTitle>
-          </CardHeader>
-          <CardContent>Hello</CardContent>
-        </Card>
-
         <Card className="col-span-1 row-span-2">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-0 flex flex-col items-center justify-center h-3/5">
                 <ActivityFeed/>
           </CardContent>
         </Card>
+        <Card className="col-span-4">
+          <CardHeader>
+            <CardTitle>Enrolled Courses</CardTitle>
+          </CardHeader>
+          <CardContent>Hello</CardContent>
+        </Card>
+
       </div>
     </div>
   );
